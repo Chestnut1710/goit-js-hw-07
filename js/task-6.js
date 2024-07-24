@@ -21,19 +21,16 @@ createButton.addEventListener('click', function () {
 
 
 function createBoxes(amount) {
-	for (let i = 0; i < amount; i += 1) {
-		const size = 30 + i * 10
-		const box = createBox(size)
-		boxesContainer.appendChild(box)
-	}
-}
+	let pxCount = 30;
+  let htmlForBox = "";
 
-function createBox(size) {
-	const box = document.createElement('div')
-	box.style.backgroundColor = getRandomHexColor()
-	box.style.width = `${size}px`
-	box.style.height = `${size}px`
-	return box
+  if (amount <= 100 && amount >= 1) {
+    for (let i = 1; i <= amount; i += 1) {
+      htmlForBox += `<div style="width: ${pxCount}px; height: ${pxCount}px; background-color: ${getRandomHexColor()};"></div>`;
+      pxCount += 10;
+    }
+    boxesContainer.insertAdjacentHTML("beforeend", htmlForBox);
+  }
 }
 
 destroyButton.addEventListener('click', destroyBoxes)

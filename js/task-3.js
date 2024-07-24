@@ -1,7 +1,7 @@
 const nameInput = document.getElementById('name-input');
 const nameOutput = document.getElementById('name-output');
 
-textInput.addEventListener("input", greetName);
+nameInput.addEventListener("input", greetName);
 
 function greetName() {
     const newName = nameInput.value.trim()
